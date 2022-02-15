@@ -1,0 +1,69 @@
+<div class="site-wrap">
+
+    <div class="site-mobile-menu site-navbar-target">
+        <div class="site-mobile-menu-header">
+            <div class="site-mobile-menu-close">
+                <span class="icon-close2 js-menu-toggle"></span>
+            </div>
+        </div>
+        <div class="site-mobile-menu-body"></div>
+    </div>
+
+
+
+
+    <div class="hero overlay" style="background-image: url('assets/images/bg_3.jpg');">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-9 mx-auto text-center">
+                    <h1 class="text-white">Search</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<div class="register-login-section spad">
+    <div class="container" style=" margin-bottom: 100px;">
+        <div class="row">
+            <div class="col-lg-6 offset-lg-3" style="margin-top: 100px;">
+                <form #searchForm ="ngForm" (ngSubmit) = "search()">
+                    <div class="login-form">
+                        <h2 style="text-align: center;">Search</h2>
+
+                        <div class="col-md-12 form-group">
+                            
+                            <input type="text" class="form-control" [(ngModel)]="team.country" [ngModelOptions]="{standalone: true}" >
+                        </div>
+                       
+                        
+                        <button type="submit" class="btn btn-info site-btn login-btn">Search</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<table class="table table-striped" *ngIf = 'teams'>
+    <tr>
+        <th>Image</th>
+        <th>Team name</th>
+        <th>Date of creation</th>
+        <th>Country</th>
+        <th>Investment</th>
+        <th>Actions</th>
+
+    </tr>
+    <tr *ngFor='let t of teams'>
+        <td><img [src]="t.img" alt="" width="100px" height="50px"></td>
+        <td>{{t.teamName}}</td>
+        <td>{{t.dateOfCreation}}</td>
+        <td>{{t.country}}</td>
+        <td>{{t.investment}}</td>
+        <td>
+            <button class="btn btn-info" (click)='contact(t._id,t.teamName)'>Contact</button>
+           
+        </td>
+    </tr>
+
+</table>

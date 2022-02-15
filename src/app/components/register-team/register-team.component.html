@@ -1,0 +1,84 @@
+<div class="register-login-section spad">
+    <div class="container" style=" margin-bottom: 100px;">
+        <div class="row">
+            <div class="col-lg-6 offset-lg-3" style="margin-top: 200px;">
+                <form #teamForm="ngForm" (ngSubmit)="registerEditTeam()">
+                    <div class="login-form">
+                        <h2 style="text-align: center;">{{titre}}</h2>
+                        <div class="col-md-12 form-group">
+                            <!-- teamName && validation teamName -->
+                            <label for="username"> Team name *</label>
+                            <input type="text" class="form-control" required minlength="2" [(ngModel)]="team.teamName"
+                                #teamName="ngModel" [ngModelOptions]="{standalone: true}">
+                        </div>
+                        <div *ngIf="teamName.invalid && (teamName.dirty || teamName.touched)" class="alert alert-danger">
+
+                            <div *ngIf="teamName.errors.required">
+                                Team name is required.
+                            </div>
+                            <div *ngIf="teamName.errors.minlength">
+                                Team name must be at least 2 characters long.
+                            </div>
+                        </div>
+                                <!-- dateOfCreation && validation dateOfCreation -->
+
+                        <div class="col-md-12 form-group">
+                            <label for="pass">Date Of Creation *</label>
+                            <input type="date" class="form-control" required [(ngModel)]="team.dateOfCreation" #dateOfCreation='ngModel' 
+                                [ngModelOptions]="{standalone: true}">
+                        </div>
+                        <div *ngIf="dateOfCreation.invalid && (dateOfCreation.dirty || dateOfCreation.touched)" class="alert alert-danger">
+
+                            <div *ngIf="dateOfCreation.errors.required">
+                                Date of creation is required.
+                            </div>
+                        
+                        </div>
+                        <!-- country && validation country -->
+
+                        <div class="col-md-12 form-group">
+                            <label for="pass">Country *</label>
+                            <input type="text" class="form-control" required minlength="2" [(ngModel)]="team.country" #country='ngModel'
+                                [ngModelOptions]="{standalone: true}">
+                        </div>
+                        <div *ngIf="country.invalid && (country.dirty || country.touched)" class="alert alert-danger">
+
+                            <div *ngIf="country.errors.required">
+                                Country is required.
+                            </div>
+                            <div *ngIf="country.errors.minlength">
+                                Country must be at least 2 characters long.
+                            </div>
+                        </div>
+                        <!-- investment && validation investment -->
+
+                        <div class="col-md-12 form-group">
+                            <label for="pass">Investment *</label>
+                            <input type="text" class="form-control" required minlength="1" [(ngModel)]="team.investment" #investment='ngModel'
+                                [ngModelOptions]="{standalone: true}">
+                        </div>
+                        <div *ngIf="investment.invalid && (investment.dirty || investment.touched)" class="alert alert-danger">
+
+                            <div *ngIf="investment.errors.required">
+                                Investment is required.
+                            </div>
+                            <div *ngIf="investment.errors.minlength">
+                                Investment must be at least 1 characters long.
+                            </div>
+                        </div>
+                          <!-- Multer -->
+                          <button type="button" (click)='filePicker.click()' class="btn btn-success">Sélectionner
+                            image</button>
+                        <div class="form-group">
+                            <input style="visibility: hidden;" type="file" class="form-control" #filePicker
+                                (change)='onImageSelected($event)' />
+                                <img [src]="imagePreview" *ngIf='imagePreview' width="100px" height="50px">
+                        </div> 
+                
+                        <button type="submit" class="btn btn-info site-btn login-btn">{{titre}}</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

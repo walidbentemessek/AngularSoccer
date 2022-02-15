@@ -1,0 +1,24 @@
+<div class="register-login-section spad">
+    <div class="container" style=" margin-bottom: 100px;">
+        <div class="row">
+            <div class="col-lg-6 offset-lg-3" style="margin-top: 200px;">
+                <form #loginForm ="ngForm" (ngSubmit) = "login()">
+                    <div class="login-form">
+                        <h2 style="text-align: center;">Login</h2>
+
+                        <div class="col-md-12 form-group">
+                            <label for="username"> Email *</label>
+                            <input type="text" class="form-control" [(ngModel)]="user.email" [ngModelOptions]="{standalone: true}" >
+                        </div>
+                        <div class="col-md-12 form-group">
+                            <label for="pass">Password *</label>
+                            <input type="password" class="form-control" [(ngModel)]="user.password" [ngModelOptions]="{standalone: true}" >
+                        </div>
+                        
+                        <button type="submit" class="btn btn-info site-btn login-btn">Login</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

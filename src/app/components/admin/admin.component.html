@@ -1,0 +1,182 @@
+<div class="site-wrap">
+
+    <div class="site-mobile-menu site-navbar-target">
+        <div class="site-mobile-menu-header">
+            <div class="site-mobile-menu-close">
+                <span class="icon-close2 js-menu-toggle"></span>
+            </div>
+        </div>
+        <div class="site-mobile-menu-body"></div>
+    </div>
+
+
+
+
+    <div class="hero overlay" style="background-image: url('assets/images/bg_3.jpg');">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-9 mx-auto text-center">
+                    <h1 class="text-white">Admin</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section>
+        <div class="site-section" style="margin-top: 10px;">
+            <div class="container">
+                <!-- <div class="section_tittle"> -->
+                <!-- <h2>admin</h2> -->
+                <!-- </div> -->
+                <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+
+                    <li class="nav-item">
+                        <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab"
+                            aria-controls="pills-home" aria-selected="false">Matchs</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab"
+                            aria-controls="pills-profile" aria-selected="false">Players</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-team" role="tab"
+                            aria-controls="pills-profile" aria-selected="true">Teams</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-user" role="tab"
+                            aria-controls="pills-profile" aria-selected="true">Users</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-message" role="tab"
+                            aria-controls="pills-profile" aria-selected="true">Messages</a>
+                    </li>
+                </ul>
+
+                <div class="tab-content" id="pills-tabContent">
+                    <div class="tab-pane fade show active" id="pills-home" role="tabpanel"
+                        aria-labelledby="pills-home-tab">
+                        <table class="table table-striped" *ngIf='!isEmpty'>
+                            <tr>
+                                <th>TeamOne</th>
+                                <th>TeamTwo</th>
+                                <th>ScoreOne</th>
+                                <th>ScoreTwo</th>
+                                <th>Actions</th>
+
+                            </tr>
+                            <tr *ngFor='let m of matches'>
+                                <td>{{m.teamOne}}</td>
+                                <td>{{m.teamTwo}}</td>
+                                <td>{{m.scoreOne}}</td>
+                                <td>{{m.scoreTwo}}</td>
+                                <td>
+                                    <button class="btn btn-info" (click)='displayMatch(m._id)'>Display</button>
+                                    <button class="btn btn-warning" (click)='editMatch(m._id)'>Edit</button>
+                                    <button class="btn btn-danger" (click)='deleteMatch(m._id)'>Delete</button>
+                                </td>
+                            </tr>
+
+                        </table>
+                        <div *ngIf="isEmpty">
+                            Matches not founded
+                        </div>
+                    </div>
+
+
+                    <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+                        <table class="table table-striped" *ngIf='!isEmpty1'>
+                            <tr>
+                                <th>Image</th>
+                                <th>Name</th>
+                                <th>Age</th>
+                                <th>Team</th>
+                                <th>Poste</th>
+                                <th>Numero</th>
+                                <th>Price</th>
+                                <th>Actions</th>
+                            </tr>
+                            <tr *ngFor='let p of players'>
+                                <td><img [src]="p.img" alt="" width="100px" height="50px"></td>
+                                <td>{{p.name}}</td>
+                                <td>{{p.age}}</td>
+                                <td>{{p.team}}</td>
+                                <td>{{p.post}}</td>
+                                <td>{{p.numero}}</td>
+                                <td>{{p.price}}</td>
+                                <td>
+                                    <button class="btn btn-info" (click)='displayPlayer(p._id)'>Display</button>
+                                    <button class="btn btn-warning" (click)='editPlayer(p._id)'>Edit</button>
+                                    <button class="btn btn-danger" (click)='deletePlayer(p._id)'>Delete</button>
+                                </td>
+                            </tr>
+                        </table>
+                        <div *ngIf='isEmpty1'>
+                            Players not founded
+                        </div>
+                    </div>
+                    <div class="tab-pane fade show" id="pills-team" role="tabpanel" aria-labelledby="pills-home-tab">
+                        <table class="table table-striped">
+                            <tr>
+                                <th>Image</th>
+                                <th>Team name</th>
+                                <th>Date of creation</th>
+                                <th>Country</th>
+                                <th>Investment</th>
+                                <th>Actions</th>
+
+                            </tr>
+                            <tr *ngFor='let t of teams'>
+                                <td><img [src]="t.img" alt="" width="100px" height="50px"></td>
+                                <td>{{t.teamName}}</td>
+                                <td>{{t.dateOfCreation}}</td>
+                                <td>{{t.country}}</td>
+                                <td>{{t.investment}}</td>
+                                <td>
+                                    <button class="btn btn-info" (click)='displayTeam(t._id)'>Display</button>
+                                    <button class="btn btn-warning" (click)='editTeam(t._id)'>Edit</button>
+                                    <button class="btn btn-danger" (click)='deleteTeam(t._id)'>Delete</button>
+                                </td>
+                            </tr>
+
+                        </table>
+
+                    </div>
+                    <div class="tab-pane fade show" id="pills-user" role="tabpanel" aria-labelledby="pills-home-tab">
+                        <table class="table table-striped">
+                            <tr>
+                                <th>First Name</th>
+                                <th>Last Name</th>
+                                <th>Email</th>
+                                <th>Tel</th>
+                                <th>Actions</th>
+
+                            </tr>
+                            <tr *ngFor='let u of users'>
+                                <td>{{u.firstName}}</td>
+                                <td>{{u.lastName}}</td>
+                                <td>{{u.email}}</td>
+                                <td>{{u.tel}}</td>
+                                <td>
+                                    <button class="btn btn-danger" (click)='deleteUser(u._id)'>Delete</button>
+
+                                </td>
+                            </tr>
+
+                        </table>
+
+                    </div>
+                    <div class="tab-pane fade show" id="pills-message" role="tabpanel" aria-labelledby="pills-home-tab">
+                        <table class="table table-striped">
+
+                            <tr *ngFor='let m of messages, let i = index'> 
+                                <app-message [message]='m' [counter]='i'></app-message>
+                            </tr>
+
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

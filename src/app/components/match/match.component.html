@@ -1,0 +1,35 @@
+
+    <div class="bg-light p-4 rounded">
+      <div class="widget-body">
+          <div class="widget-vs">
+            <div class="d-flex align-items-center justify-content-around justify-content-between w-100">
+              <div class="team-1 text-center">
+                <img src="assets/images/logo_1.png" alt="Image">
+                <h3>{{childMatch.teamOne}}</h3>
+                <h5>{{childMatch.scoreOne}}</h5>
+              </div>
+              <div>
+                <span class="vs"><span>VS</span></span>
+              </div>
+              <div class="team-2 text-center">
+                <img src="assets/images/logo_2.png" alt="Image">
+                <h3>{{childMatch.teamTwo}}</h3>
+                <h5>{{childMatch.scoreTwo}}</h5>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center widget-vs-contents mb-4">
+          <h4>World Cup League</h4>
+          <p class="mb-5">
+            <span class="d-block">December 20th, 2020</span>
+            <span class="d-block">9:30 AM GMT+0</span>
+            <strong class="text-primary">New Euro Arena</strong>
+             </p>
+             <button type="submit" class="btn btn-danger" (click) ='delete(childMatch._id)'>Delete</button>
+
+        </div>
+      
+    </div>
+

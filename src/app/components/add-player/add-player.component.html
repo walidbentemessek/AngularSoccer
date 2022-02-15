@@ -1,0 +1,109 @@
+<div class="register-login-section spad">
+    <div class="container" style=" margin-bottom: 100px;">
+        <div class="row">
+            <div class="col-lg-6 offset-lg-3" style="margin-top: 200px;">
+                <form #playerForm="ngForm" (ngSubmit)="addEditPlayer()">
+                    <div class="login-form">
+                        <h2 style="text-align: center;">{{title}}</h2>
+                        <div class="col-md-12 form-group">
+                            <!-- name && validation name -->
+                            <label for="username"> Name *</label>
+                            <input type="text" class="form-control" required minlength="2" [(ngModel)]="player.name"
+                                #name="ngModel" [ngModelOptions]="{standalone: true}">
+                        </div>
+                        <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert alert-danger">
+
+                            <div *ngIf="name.errors.required">
+                                Name is required.
+                            </div>
+                            <div *ngIf="name.errors.minlength">
+                                Name must be at least 2 characters long.
+                            </div>
+                        </div>
+                        <!-- age && validation age -->
+
+                        <div class="col-md-12 form-group">
+                            <label for="pass">Age *</label>
+                            <input type="text" class="form-control" required maxlength="2" [(ngModel)]="player.age"
+                                #age='ngModel' [ngModelOptions]="{standalone: true}">
+                        </div>
+                        <div *ngIf="age.invalid && (age.dirty || age.touched)" class="alert alert-danger">
+
+                            <div *ngIf="age.errors.required">
+                                age is required.
+                            </div>
+                            <div *ngIf="age.errors.minlength">
+                                age must be at least 2 characters long.
+                            </div>
+                        </div>
+                        <!-- team && validation team -->
+
+                        <div class="col-md-12 form-group">
+                            <label for="pass">Team *</label>
+                            <input type="text" class="form-control" required minlength="2" [(ngModel)]="player.team"
+                                #team='ngModel' [ngModelOptions]="{standalone: true}">
+                        </div>
+                        <div *ngIf="team.invalid && (team.dirty || team.touched)" class="alert alert-danger">
+
+                            <div *ngIf="team.errors.required">
+                                team is required.
+                            </div>
+                            <div *ngIf="team.errors.minlength">
+                                team must be at least 2 characters long.
+                            </div>
+                        </div>
+                        <!-- post && validation post -->
+
+                        <div class="col-md-12 form-group">
+                            <label for="pass">Post *</label>
+                            <input type="text" class="form-control" required minlength="4" [(ngModel)]="player.post"
+                                #post='ngModel' [ngModelOptions]="{standalone: true}">
+                        </div>
+                        <div *ngIf="post.invalid && (post.dirty || post.touched)" class="alert alert-danger">
+
+                            <div *ngIf="post.errors.required">
+                                post is required.
+                            </div>
+                            <div *ngIf="post.errors.minlength">
+                                post must be at least 4 characters long.
+                            </div>
+                        </div>
+                        <!-- numero && validation numero -->
+                        <div class="col-md-12 form-group">
+                            <label for="pass">T-Shirt Number *</label>
+                            <input type="text" class="form-control" required maxlength="2" [(ngModel)]="player.numero"
+                                #numero='ngModel' [ngModelOptions]="{standalone: true}">
+                        </div>
+                        <div *ngIf="numero.invalid && (numero.dirty || numero.touched)" class="alert alert-danger">
+
+                            <div *ngIf="numero.errors.required">
+                                numero is required.
+                            </div>
+                            <div *ngIf="numero.errors.minlength">
+                                numero must be at least 4 characters long.
+                            </div>
+                        </div>
+                        <!-- Price  -->
+                        <div class="col-md-12 form-group">
+                            <label for="pass">Price *</label>
+                            <input type="text" class="form-control" [(ngModel)]="player.price" #price='ngModel'
+                                [ngModelOptions]="{standalone: true}">
+                        </div>
+
+                        <!-- Multer -->
+                        <button type="button" (click)='filePicker.click()' class="btn btn-success">Sélectionner
+                            image</button>
+                        <div class="form-group">
+                            <input style="visibility: hidden;" type="file" class="form-control" #filePicker
+                                (change)='onImageSelected($event)' />
+                                <img [src]="imagePreview" *ngIf='imagePreview' width="100px" height="50px">
+                        </div> 
+
+
+                        <button type="submit" class="btn btn-info site-btn login-btn">{{title}}</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

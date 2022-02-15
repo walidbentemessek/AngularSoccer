@@ -1,0 +1,39 @@
+<div class="d-flex team-vs" style=" margin-top: 50px; margin-bottom: 100px;">
+  <!-- <span class="score">4-1</span> -->
+  <div class="team-1 w-50">
+    <div class="team-details w-100 text-center">
+      <img src="assets/images/logo_1.png" alt="Image" class="img-fluid">
+      <h3>{{childMatch1.teamOne}} <span [ngClass]="{
+          'style1' : resultStyle(childMatch1.scoreOne,childMatch1.scoreTwo)==='win',
+          'style2' : resultStyle(childMatch1.scoreOne,childMatch1.scoreTwo)==='loss',
+          'style3' : resultStyle(childMatch1.scoreOne,childMatch1.scoreTwo)==='draw'
+        }">({{resultStyle(childMatch1.scoreOne,childMatch1.scoreTwo)}})</span></h3>
+      <ul class="list-unstyled">
+        <li [ngClass]="{
+            'green' : scoreStyle(childMatch1.scoreOne,childMatch1.scoreTwo)==='0',
+            'red' : scoreStyle(childMatch1.scoreOne,childMatch1.scoreTwo)==='1',
+            'blue' : scoreStyle(childMatch1.scoreOne,childMatch1.scoreTwo)==='2'
+          }">{{childMatch1.scoreOne}} </li>
+
+      </ul>
+    </div>
+  </div>
+  <div class="team-2 w-50">
+    <div class="team-details w-100 text-center">
+      <img src="assets/images/logo_2.png" alt="Image" class="img-fluid">
+      <h3>{{childMatch1.teamTwo}} <span [ngClass]="{
+          'style1' : resultStyle(childMatch1.scoreTwo,childMatch1.scoreOne)==='win',
+          'style2' : resultStyle(childMatch1.scoreTwo,childMatch1.scoreOne)==='loss',
+          'style3' : resultStyle(childMatch1.scoreTwo,childMatch1.scoreOne)==='draw'
+        }">({{resultStyle(childMatch1.scoreTwo,childMatch1.scoreOne)}})</span></h3>
+      <ul class="list-unstyled">
+        <li [ngClass]="{
+            'green' : scoreStyle(childMatch1.scoreTwo,childMatch1.scoreOne)==='0',
+            'red' : scoreStyle(childMatch1.scoreTwo,childMatch1.scoreOne)==='1',
+            'blue' : scoreStyle(childMatch1.scoreTwo,childMatch1.scoreOne)==='2'
+          }"> {{childMatch1.scoreTwo}}</li>
+
+      </ul>
+    </div>
+  </div>
+</div>

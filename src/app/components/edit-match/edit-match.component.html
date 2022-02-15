@@ -1,0 +1,78 @@
+<div class="register-login-section spad">
+    <div class="container" style=" margin-bottom: 100px;">
+        <div class="row">
+            <div class="col-lg-6 offset-lg-3" style="margin-top: 200px;">
+                <form [formGroup] = "matchForm">
+                    <div class="login-form">
+                        <h2 style="text-align: center;">Edit match</h2>
+
+                        <div class="col-md-12 form-group">
+                            <label for="username"> Team One</label>
+                            <input type="text" class="form-control" formControlName ="teamOne" [(ngModel)]="match.teamOne">
+                        </div>
+                        <!-- control TeamOne -->
+                        <div *ngIf="matchForm.controls['teamOne'].invalid &&
+                        (matchForm.controls['teamOne'].dirty ||
+                        matchForm.controls['teamOne'].touched)">
+                            <div *ngIf="matchForm.controls['teamOne'].errors.minlength" class="text-danger">
+                                Team must have at least 2 characters
+                            </div>
+                            <div *ngIf="matchForm.controls['teamOne'].errors.required" class="text-danger">
+                                Team is required
+                            </div>
+                        </div>
+                        <div class="col-md-12 form-group">
+                            <label for="pass">Team Two</label>
+                            <input type="text" class="form-control" formControlName ="teamTwo"  [(ngModel)]="match.teamTwo" >
+                        </div>
+                         <!-- control TeamTwo -->
+                         <div *ngIf="matchForm.controls['teamTwo'].invalid &&
+                         (matchForm.controls['teamTwo'].dirty ||
+                         matchForm.controls['teamTwo'].touched)">
+                             <div *ngIf="matchForm.controls['teamTwo'].errors.minlength" class="text-danger">
+                                 Team must have at least 2 characters
+                             </div>
+                             <div *ngIf="matchForm.controls['teamTwo'].errors.required" class="text-danger">
+                                 Team is required
+                             </div>
+                         </div>
+                        <div class="col-md-12 form-group">
+                            <label for="pass">Score One</label>
+                            <input type="text" class="form-control" formControlName ="scoreOne" [(ngModel)]="match.scoreOne" >
+                        </div>
+                        <!-- control scoreOne -->
+                        <div *ngIf="matchForm.controls['scoreOne'].invalid &&
+                        (matchForm.controls['scoreOne'].dirty ||
+                        matchForm.controls['scoreOne'].touched)">
+                            <div *ngIf="matchForm.controls['scoreOne'].errors.maxlength" class="text-danger">
+                                Score must have 1 character
+                            </div>
+                            <div *ngIf="matchForm.controls['scoreOne'].errors.required" class="text-danger">
+                                Score is required
+                            </div>
+                        </div>
+                        <div class="col-md-12 form-group">
+                            <label for="pass">Score Two</label>
+                            <input type="text" class="form-control" formControlName ="scoreTwo" [(ngModel)]="match.scoreTwo">
+                        </div>
+                        <!-- control scoreTwo -->
+                        <div *ngIf="matchForm.controls['scoreTwo'].invalid &&
+                        (matchForm.controls['scoreTwo'].dirty ||
+                        matchForm.controls['scoreTwo'].touched)">
+                            <div *ngIf="matchForm.controls['scoreTwo'].errors.maxlength" class="text-danger">
+                                Score must have 1 character
+                            </div>
+                            <div *ngIf="matchForm.controls['scoreTwo'].errors.required" class="text-danger">
+                                Score is required
+                            </div>
+                        </div>
+                       
+                        <button type="submit" class="btn btn-info site-btn login-btn" (click)='editMatch(matchForm.value)' >Edit Match</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+

@@ -1,0 +1,114 @@
+<div class="register-login-section spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 offset-lg-3" style="margin-top: 200px; margin-bottom: 100px;">
+                <div class="register-form">
+                    <h2 style="text-align: center;">Sign up</h2>
+                    <form [formGroup]='userForm'>
+                        <div class="col-md-12 form-group">
+                            <label for="username">First Name</label>
+                            <input type="text" class="form-control" formControlName='firstName'>
+                        </div>
+                        <!-- Controls First Name -->
+                        <div *ngIf="userForm.controls['firstName'].invalid &&
+                        (userForm.controls['firstName'].dirty ||
+                        userForm.controls['firstName'].touched)">
+                            <div *ngIf="userForm.controls['firstName'].errors.minlength" class="text-danger">
+                                First name must have at least 3 characters
+                            </div>
+                            <div *ngIf="userForm.controls['firstName'].errors.required" class="text-danger">
+                                First name is required
+                            </div>
+                        </div>
+
+                        <div class="col-md-12 form-group">
+                            <label for="username">Last Name</label>
+                            <input type="text" class="form-control" formControlName='lastName'>
+
+                        </div>
+                        <!-- Controls Last Name -->
+                        <div *ngIf="userForm.controls['lastName'].invalid &&
+                        (userForm.controls['lastName'].dirty ||
+                        userForm.controls['lastName'].touched)">
+                            <div *ngIf="userForm.controls['lastName'].errors.minlength" class="text-danger">
+                                Last name must have at least 3 characters
+                            </div>
+                            <div *ngIf="userForm.controls['lastName'].errors.required" class="text-danger">
+                                Last name is required
+                            </div>
+                        </div>
+
+                        <div class="col-md-12 form-group">
+                            <label for="username">Email </label>
+                            <input type="email" class="form-control" formControlName='email'>
+
+                        </div>
+                        <!-- Controls Email -->
+                        <div *ngIf="userForm.controls['email'].invalid &&
+                         (userForm.controls['email'].dirty ||
+                         userForm.controls['email'].touched)">
+                            <div *ngIf="userForm.controls['email'].errors.email" class="text-danger">
+                                Email is not valid
+                            </div>
+                            <div *ngIf="userForm.controls['email'].errors.required" class="text-danger">
+                                Email name is required
+                            </div>
+                        </div>
+
+                        <div class="col-md-12 form-group">
+                            <label for="pass">Password </label>
+                            <input type="password" class="form-control" formControlName='password'>
+
+                        </div>
+                        <!-- Controls Password -->
+                        <div *ngIf="userForm.controls['password'].invalid &&
+                        (userForm.controls['password'].dirty ||
+                        userForm.controls['password'].touched)">
+                            <div *ngIf="userForm.controls['password'].errors.minlength" class="text-danger">
+                                Password must have at least 8 characters
+                            </div>
+                            <div *ngIf="userForm.controls['password'].errors.required" class="text-danger">
+                                Password is required
+                            </div>
+                        </div>
+                        <div class="col-md-12 form-group">
+                            <label for="con-pass">Confirm Password </label>
+                            <input type="password" class="form-control" formControlName='confPassword'>
+
+                        </div>
+                        <!-- Controls ConfPassword -->
+                        <div *ngIf="userForm.controls['confPassword'].invalid &&
+                         (userForm.controls['confPassword'].dirty ||
+                         userForm.controls['confPassword'].touched)">
+                            <div *ngIf="userForm.controls['confPassword'].errors.minlength" class="text-danger">
+                                Confirm Password must have at least 8 characters
+                            </div>
+                            <div *ngIf="userForm.controls['confPassword'].errors.required" class="text-danger">
+                                Confirm Password is required
+                            </div>
+                        </div>
+
+                        <div class="col-md-12 form-group">
+                            <label for="con-pass">Telephone </label>
+                            <input type="text" class="form-control" formControlName='tel'>
+
+                        </div>
+                        <!-- Controls Tel -->
+                        <div *ngIf="userForm.controls['tel'].invalid &&
+                         (userForm.controls['tel'].dirty ||
+                         userForm.controls['tel'].touched)">
+                            <div *ngIf="userForm.controls['tel'].errors.minlength" class="text-danger">
+                                Telephone must have at least 8 characters
+                            </div>
+                            <div *ngIf="userForm.controls['tel'].errors.required" class="text-danger">
+                                Telephone is required
+                            </div>
+                        </div>
+                        <button type="submit" (click)='signup(userForm.value)'
+                            class="btn btn-info site-btn register-btn">SIGN UP</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
