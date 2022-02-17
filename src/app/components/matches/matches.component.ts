@@ -15,7 +15,8 @@ export class MatchesComponent implements OnInit {
     // this.matches = JSON.parse(localStorage.getItem('matches')||'[]');
    this.matchService.getAllMatches().subscribe(
      (data)=>{
-       this.matches=data.matches;
+      //  this.matches=data.matches;
+       this.matches=data;
      }
    )
 }

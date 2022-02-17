@@ -25,7 +25,7 @@ export class EditMatchComponent implements OnInit {
     this.id =  this.activatedRoute.snapshot.paramMap.get('id');
     this.matchService.getMatchById(this.id).subscribe(
       (data) => {
-        this.match = data.match;
+        this.match = data;
       }
     )
 
@@ -43,7 +43,7 @@ export class EditMatchComponent implements OnInit {
     }
     this.matchService.editMatch(editMatch).subscribe(
       (data) => {
-        console.log('edit match', data.message);
+        // console.log('edit match', data.message);
 
         this.router.navigate(['admin']);
       }

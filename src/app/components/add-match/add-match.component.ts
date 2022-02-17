@@ -32,7 +32,7 @@ export class AddMatchComponent implements OnInit {
     // localStorage.setItem('idM', idMatch + 1);
   this.matchService.addMatch(m).subscribe(
     (data)=>{
-      console.log('Add match',data.message);
+      // console.log('Add match',data.message);
       
 
       this.router.navigate(['admin']);

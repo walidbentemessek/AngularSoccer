@@ -8,16 +8,17 @@ import { MatchService } from 'src/app/services/match.service';
   styleUrls: ['./display-match.component.css']
 })
 export class DisplayMatchComponent implements OnInit {
-  id: any;
+  _id: any;
   matches: any;
   objets: any;
   constructor(private ActivatedRoute: ActivatedRoute, private matchService:MatchService) { }
 
   ngOnInit() {
-    this.id = this.ActivatedRoute.snapshot.paramMap.get('id');
-    this.matchService.getMatchById(this.id).subscribe(
+    this._id = this.ActivatedRoute.snapshot.paramMap.get('id');
+    this.matchService.getMatchById(this._id).subscribe(
       (data)=>{
-        this.objets=data.match;
+        
+       this.objets= data;
       }
     )
     // this.matches = JSON.parse(localStorage.getItem('matches'));

@@ -1,0 +1,25 @@
+{
+  "matches": [
+    {
+      "id": 1,
+      "teamOne": "Juventus",
+      "teamTwo": "Inter",
+      "scoreOne": "6",
+      "scoreTwo": "1"
+    },
+    {
+      "teamOne": "Marseille",
+      "teamTwo": "Nantes",
+      "scoreOne": "2",
+      "scoreTwo": "2",
+      "id": 2
+    },
+    {
+      "teamOne": "barcelona",
+      "teamTwo": "real sociedad",
+      "scoreOne": "1",
+      "scoreTwo": "0",
+      "id": 3
+    }
+  ]
+}

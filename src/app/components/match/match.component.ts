@@ -16,16 +16,15 @@ export class MatchComponent implements OnInit {
   ngOnInit() {
   }
   delete(id){
-   this.matchService.deleteMatch(id).subscribe(
-     ()=>{
+  //  this.matchService.deleteMatch(id).subscribe(
+  //    ()=>{
        this.matchService.getAllMatches().subscribe(
          (data)=>{
           //  this.matches=data;
-           this.newMatch.emit(data.matches);
+           this.newMatch.emit(data);
          }
        )
-     }
-   )
+    //  } )
 
   }
 }

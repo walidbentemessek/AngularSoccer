@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class UserService {
-  userURL: string = 'http://localhost:3001'
+  userURL: string = 'http://localhost:3000'
   constructor(private httpClient: HttpClient) { }
 
   signup(user) {

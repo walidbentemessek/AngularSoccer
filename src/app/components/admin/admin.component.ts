@@ -25,7 +25,8 @@ export class AdminComponent implements OnInit {
     // this.matches = JSON.parse(orage.getItem('matches'));
     this.matchService.getAllMatches().subscribe(
       (data) => {
-        this.matches = data.matches;
+        // this.matches = data.matches;
+        this.matches = data;
         this.isEmpty = (this.matches.length == 0) ? true : false;
       }
     )
@@ -70,15 +71,15 @@ export class AdminComponent implements OnInit {
   deleteMatch(id) {
     this.matchService.deleteMatch(id).subscribe(
       (data) => {
-        console.log('delete match', data.message);
+        // console.log('delete match', data.message);
 
         this.matchService.getAllMatches().subscribe(
           (data) => {
-            this.matches = data.matches;
-          }
-        )
-      }
-    )
+            // this.matches = data.match;
+            this.matches = data;
+
+          })
+      })
   }
 
   ///////////////////////// players
