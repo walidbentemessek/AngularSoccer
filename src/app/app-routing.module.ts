@@ -13,6 +13,7 @@ import { EditMatchComponent } from './components/edit-match/edit-match.component
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { MatchesComponent } from './components/matches/matches.component';
+import { NgxSelectCountriesComponent } from './components/ngx-select-countries/ngx-select-countries.component';
 import { PlayersComponent } from './components/players/players.component';
 import { RegisterTeamComponent } from './components/register-team/register-team.component';
 import { SearchComponent } from './components/search/search.component';
@@ -33,7 +34,7 @@ const routes: Routes = [
   { path: 'allMatch', component: AllMatchComponent },
   { path: 'registerTeam', component: RegisterTeamComponent },
   { path: 'search', component: SearchComponent },
-
+  { path: 'selectCountries', component: NgxSelectCountriesComponent},
   /*dynamic path*/
   { path: 'displayMatch/:id', component: DisplayMatchComponent },
   { path: 'displayPlayer/:id', component: DisplayPlayerComponent },

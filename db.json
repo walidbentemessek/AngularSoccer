@@ -8,11 +8,11 @@
       "scoreTwo": "1"
     },
     {
+      "id": 2,
       "teamOne": "Marseille",
       "teamTwo": "Nantes",
       "scoreOne": "2",
-      "scoreTwo": "2",
-      "id": 2
+      "scoreTwo": "2"
     },
     {
       "teamOne": "barcelona",

@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { NgxSelectModule, INgxSelectOptions } from 'ngx-select-ex';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
@@ -31,7 +31,12 @@ import { TeamComponent } from './components/team/team.component';
 import { DisplayTeamComponent } from './components/display-team/display-team.component';
 import { SearchComponent } from './components/search/search.component';
 import { MessageComponent } from './components/message/message.component';
+import { NgxSelectCountriesComponent } from './components/ngx-select-countries/ngx-select-countries.component';
 
+const CustomSelectOptions: INgxSelectOptions = { // Check the interface for more options
+  optionValueField: 'id',
+  optionTextField: 'name'
+};
 
 @NgModule({
   declarations: [
@@ -60,14 +65,16 @@ import { MessageComponent } from './components/message/message.component';
     TeamComponent,
     DisplayTeamComponent,
     SearchComponent,
-    MessageComponent
+    MessageComponent,
+    NgxSelectCountriesComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxSelectModule.forRoot(CustomSelectOptions),
     // InMemoryWebApiModule.forRoot(DataService),
     
   ],
