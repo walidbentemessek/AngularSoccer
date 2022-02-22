@@ -1,0 +1,11 @@
+.autoComplete{
+    display: flex; 
+    justify-content: center;
+     margin-bottom: 300px;
+     margin: 200px;
+}
+
+.color{
+    color: azure;
+}
+

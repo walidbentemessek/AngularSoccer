@@ -1,6 +1,5 @@
-<div class="row"></div>
-<div class="container" style=" margin-bottom: 200px;">
-    <div class="example-block" style="margin-top: 200px;">
+<!-- <div class="container" style=" margin-bottom: 200px;">
+     <div class="example-block" style="margin-top: 200px;">
         <div class="example-block__item">
             <ngx-select [formControl]="ngxControl" [allowClear]="true" [defaultValue]="doNgxDefault()" [items]="items"
                 placeholder="Select ..." (typed)="inputTyped('ngx-select', $event)" (focus)="doFocus()"
@@ -12,5 +11,19 @@
                 <pre>{{ngxControl.value | json}}</pre>
             </div>
         </div>
-    </div>
+    </div> 
+ </div>   -->
+<div class="row"></div>
+<div class="autoComplete">
+    <form [formGroup]="formGroup">
+        <mat-form-field>
+            <mat-label class="color"> Select... </mat-label>
+            <input type="text" formControlName="country" matInput [matAutocomplete]="auto" />
+            <mat-autocomplete #auto='matAutocomplete'>
+                <mat-option *ngFor="let option of filteredOptions" [value]="option">
+                    {{option}}
+                </mat-option>
+            </mat-autocomplete>
+        </mat-form-field>
+    </form>
 </div>

@@ -1,5 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatAutocompleteModule} from '@angular/material/autocomplete'
+import { MatInputModule} from '@angular/material/input'
 import { NgxSelectModule, INgxSelectOptions } from 'ngx-select-ex';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -14,7 +18,7 @@ import { BlogComponent } from './components/blog/blog.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { MatchComponent } from './components/match/match.component';
 import { AdminComponent } from './components/admin/admin.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 import { AddPlayerComponent } from './components/add-player/add-player.component';
 import { AddMatchComponent } from './components/add-match/add-match.component';
 import { DisplayMatchComponent } from './components/display-match/display-match.component';
@@ -32,6 +36,7 @@ import { DisplayTeamComponent } from './components/display-team/display-team.com
 import { SearchComponent } from './components/search/search.component';
 import { MessageComponent } from './components/message/message.component';
 import { NgxSelectCountriesComponent } from './components/ngx-select-countries/ngx-select-countries.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 const CustomSelectOptions: INgxSelectOptions = { // Check the interface for more options
   optionValueField: 'id',
@@ -75,6 +80,9 @@ const CustomSelectOptions: INgxSelectOptions = { // Check the interface for more
     AppRoutingModule,
     HttpClientModule,
     NgxSelectModule.forRoot(CustomSelectOptions),
+    BrowserAnimationsModule,
+    MatAutocompleteModule,
+    MatInputModule
     // InMemoryWebApiModule.forRoot(DataService),
     
   ],
