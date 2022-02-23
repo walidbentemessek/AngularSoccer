@@ -15,13 +15,13 @@ export class CountriesService {
     return this.http.get(this.countriesUrl);
   }
 
-  getData() {
-    return this.http.get(this.countriesUrl)
-      .pipe(
-        map((response: []) => response.map(item => item['name']))
+  // getData() {
+  //   return this.http.get(this.countriesUrl)
+  //     .pipe(
+  //       map((response: []) => response.map(item => item['name']))
 
-      )
-  }
+  //     )
+  // }
 
 
 

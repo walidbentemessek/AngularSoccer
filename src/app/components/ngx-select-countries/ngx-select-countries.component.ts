@@ -11,21 +11,38 @@ import { map, startWith } from 'rxjs/operators';
 })
 export class NgxSelectCountriesComponent implements OnInit {
   public items: any;
-  options: string[];
-  formGroup: FormGroup;
-  filteredOptions :any;
+  // options: string[];
+  // formGroup: FormGroup;
+  // filteredOptions :any;
   // public ngxControl = new FormControl();
   // private _ngxDefaultTimeout;
   // private _ngxDefaultInterval;
   // private _ngxDefault;
+  keyword = 'name';
+  public data: any;
+
+
+  selectEvent(item: any) {
+    console.log('NgxSelectCountriesComponent.selectEvent:', item.name);
+  }
+
+  onChangeSearch(val: string) {
+    console.log('NgxSelectCountriesComponent.onChangeSearch:', val);
+  }
+
+  onFocused(e: any) {
+    console.log('NgxSelectCountriesComponent.onFocused:', e);
+
+  }
 
   constructor(private countriesService: CountriesService, private fb: FormBuilder) {
 
     // GET INFORMATION FROM WEB SERVICE
-    // this.countriesService.getAllCountries().subscribe(
-    //   data => {
-    //     this.items = data;
-    //   })
+    this.countriesService.getAllCountries().subscribe(
+      data => {
+        this.data = data;
+      })
+
     // this._ngxDefaultTimeout = setTimeout(() => {
     //   this._ngxDefaultInterval = setInterval(() => {
     //     // const idx = Math.floor(Math.random() * (this.items.length - 1));
@@ -36,35 +53,12 @@ export class NgxSelectCountriesComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.getNames();
-    this.initForms();
+    // this.getNames();
+    // this.initForms();
   }
 
 
-  initForms() {
-    this.formGroup = this.fb.group({
-      'country': ['']
-    })
-    this.formGroup.get('country').valueChanges.subscribe(response => {
-      // console.log('data is', response);
-      this.filterData(response);
-    })
-  }
-
-
-  filterData(enteredData) {
-    this.filteredOptions = this.options.filter(item => {
-      return item.toLowerCase().indexOf(enteredData.toLowerCase()) > -1
-    })
-  }
-
-
-  getNames() {
-    this.countriesService.getData().subscribe(response => {
-      this.options = response;
-      this.filteredOptions = response;
-    })
-  }
+  /////////////////////////////////////////////////////////////////////////////////////////////
 
 
   // public ngOnDestroy(): void {
@@ -91,7 +85,37 @@ export class NgxSelectCountriesComponent implements OnInit {
   // public doRemove = (value: any) => console.log('NgxSelectCountriesComponent.doRemove', value);
 
   // public doSelectOptions = (options: INgxSelectOptions[]) => console.log('NgxSelectCountriesComponent.doSelectOptions', options);
+
+
+
 }
 
 
 
+///////////////////////////////////////////////////////////////////////////
+
+
+// initForms() {
+//   this.formGroup = this.fb.group({
+//     'country': ['']
+//   })
+//   this.formGroup.get('country').valueChanges.subscribe(response => {
+//     // console.log('data is', response);
+//     this.filterData(response);
+//   })
+// }
+
+
+// filterData(enteredData) {
+//   this.filteredOptions = this.options.filter(item => {
+//     return item.toLowerCase().indexOf(enteredData.toLowerCase()) > -1
+//   })
+// }
+
+
+// getNames() {
+//   this.countriesService.getData().subscribe(response => {
+//     this.options = response;
+//     this.filteredOptions = response;
+//   })
+// }

@@ -5,6 +5,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatAutocompleteModule} from '@angular/material/autocomplete'
 import { MatInputModule} from '@angular/material/input'
 import { NgxSelectModule, INgxSelectOptions } from 'ngx-select-ex';
+import { AutoCompleteModule} from 'angular-ngx-autocomplete';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
@@ -71,7 +72,8 @@ const CustomSelectOptions: INgxSelectOptions = { // Check the interface for more
     DisplayTeamComponent,
     SearchComponent,
     MessageComponent,
-    NgxSelectCountriesComponent
+    NgxSelectCountriesComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -82,7 +84,8 @@ const CustomSelectOptions: INgxSelectOptions = { // Check the interface for more
     NgxSelectModule.forRoot(CustomSelectOptions),
     BrowserAnimationsModule,
     MatAutocompleteModule,
-    MatInputModule
+    MatInputModule,
+    AutoCompleteModule
     // InMemoryWebApiModule.forRoot(DataService),
     
   ],
