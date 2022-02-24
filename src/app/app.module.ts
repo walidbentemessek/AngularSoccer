@@ -4,8 +4,9 @@ import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatAutocompleteModule} from '@angular/material/autocomplete'
 import { MatInputModule} from '@angular/material/input'
-import { NgxSelectModule, INgxSelectOptions } from 'ngx-select-ex';
-import { AutoCompleteModule} from 'angular-ngx-autocomplete';
+// import { NgxSelectModule,INgxSelectOptions } from 'ngx-select-ex';
+// import { AutoCompleteModule} from 'angular-ngx-autocomplete';
+import { NgxSelectModule} from 'ngx-select-autocomplete';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
@@ -38,11 +39,12 @@ import { SearchComponent } from './components/search/search.component';
 import { MessageComponent } from './components/message/message.component';
 import { NgxSelectCountriesComponent } from './components/ngx-select-countries/ngx-select-countries.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { from } from 'rxjs';
 
-const CustomSelectOptions: INgxSelectOptions = { // Check the interface for more options
-  optionValueField: 'id',
-  optionTextField: 'name'
-};
+// const CustomSelectOptions: INgxSelectOptions = { // Check the interface for more options
+//   optionValueField: 'id',
+//   optionTextField: 'name'
+// };
 
 @NgModule({
   declarations: [
@@ -81,11 +83,15 @@ const CustomSelectOptions: INgxSelectOptions = { // Check the interface for more
     ReactiveFormsModule,
     AppRoutingModule,
     HttpClientModule,
-    NgxSelectModule.forRoot(CustomSelectOptions),
+    // NgxSelectModule.forRoot(CustomSelectOptions),
     BrowserAnimationsModule,
     MatAutocompleteModule,
     MatInputModule,
-    AutoCompleteModule
+    NgxSelectModule
+   
+    // AutoCompleteModule
+    
+    
     // InMemoryWebApiModule.forRoot(DataService),
     
   ],

@@ -1,19 +1,18 @@
 <div class="row"></div>
-<div>
-    <ngx-autocomplete class='autoComplete' [data]="data" [searchOnProperty]="keyword"
-     (selected)='selectEvent($event)'
-     (inputChanged)='onChangeSearch($event)' (inputFocused)='onFocused($event)'
-     [itemTemplate]="itemTemplate"
-     placeholder="Select ..." [notFoundTemplate]="notFoundTemplate">
-    </ngx-autocomplete>
-    
-     <ng-template #itemTemplate let-item>
-        <a [innerHTML]="item.name"></a>
-    </ng-template>
+<div class="container" style=" margin-bottom: 200px;">
+    <div class="example-block" style="margin-top: 200px;">
+        <div class="example-block__item">
+            <ngx-select [formControl]="ngxControl" [data]="data" [display-prop]="'name'" placeholder="Select ..."
+                (typed)="inputTyped('ngx-select', $event)" (focus)="doFocus()" (blur)="doBlur()" (open)="doOpen()"
+                (close)="doClose()" (select)="doSelect($event)" (remove)="doRemove($event)"
+                (selectionChanges)="doSelectOptions($event)">
+            </ngx-select>
 
-    <ng-template #notFoundTemplate let-notFound>
-        <div [innerHTML]="notFound"></div>
-    </ng-template>
+            <div class="alert alert-secondary">
+                <pre>{{ngxControl.value | json}}</pre>
+            </div>
+        </div>
+    </div>
 </div>
 
 
@@ -23,27 +22,29 @@
 
 
 
-
-
-
-
 <!---------------------------------------------------------------------------------------------->
-
 <!-- <div class="container" style=" margin-bottom: 200px;">
      <div class="example-block" style="margin-top: 200px;">
         <div class="example-block__item">
-            <ngx-select [formControl]="ngxControl" [allowClear]="true" [defaultValue]="doNgxDefault()" [items]="items"
-                placeholder="Select ..." (typed)="inputTyped('ngx-select', $event)" (focus)="doFocus()"
-                (blur)="doBlur()" (open)="doOpen()" (close)="doClose()" (select)="doSelect($event)"
-                (remove)="doRemove($event)" (selectionChanges)="doSelectOptions($event)">
+            <ngx-select  [items]="items" [formControl]="ngxControl"
+            (selected)='selectEvent($event)'
+            (inputChanged)='onChangeSearch($event)' (inputFocused)='onFocused($event)'   
+            placeholder="Select ..." >
             </ngx-select>
-
+            <ng-template #itemTemplate let-item>
+                <a [innerHTML]="item.name"></a>
+            </ng-template>
+        
+            <ng-template #notFoundTemplate let-notFound>
+                <div [innerHTML]="notFound"></div>
+            </ng-template>
             <div class="alert alert-secondary">
                 <pre>{{ngxControl.value | json}}</pre>
             </div>
         </div>
     </div> 
  </div>   -->
+
 
 <!------------------------------------------------------------------------------------------------>
 
@@ -61,4 +62,23 @@
             </mat-autocomplete>
         </mat-form-field>
     </form>
+</div> -->
+
+<!-- //////////////////////////////////////////////////////////////////////////////// -->
+
+<!-- <div>
+    <ngx-autocomplete class='autoComplete' [data]="data" [searchOnProperty]="keyword"
+     (selected)='selectEvent($event)'
+     (inputChanged)='onChangeSearch($event)' (inputFocused)='onFocused($event)'
+     [itemTemplate]="itemTemplate"
+     placeholder="Select ..." [notFoundTemplate]="notFoundTemplate">
+    </ngx-autocomplete>
+
+     <ng-template #itemTemplate let-item>
+        <a [innerHTML]="item.name"></a>
+    </ng-template>
+
+    <ng-template #notFoundTemplate let-notFound>
+        <div [innerHTML]="notFound"></div>
+    </ng-template>
 </div> -->
