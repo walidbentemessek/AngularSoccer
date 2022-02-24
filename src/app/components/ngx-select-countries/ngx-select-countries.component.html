@@ -1,15 +1,23 @@
 <div class="row"></div>
-<div class="container" style=" margin-bottom: 200px;">
-    <div class="example-block" style="margin-top: 200px;">
+ <div class="container" style=" margin-bottom:300px;">
+    <div class="example-block" style="margin-top: 300px;">
         <div class="example-block__item">
-            <ngx-select [formControl]="ngxControl" [data]="data" [display-prop]="'name'" placeholder="Select ..."
-                (typed)="inputTyped('ngx-select', $event)" (focus)="doFocus()" (blur)="doBlur()" (open)="doOpen()"
-                (close)="doClose()" (select)="doSelect($event)" (remove)="doRemove($event)"
-                (selectionChanges)="doSelectOptions($event)">
+            <div [formGroup]="formGroup">
+            <ngx-select  id="subscriptionType" name="subscriptionType"
+            [items]="items" 
+            [allowClear]="true"
+            [defaultValue]="doNgxDefault()"
+            placeholder="Select ..."
+            (typed)="inputTyped($event)"
+            optionValueField="id"
+            optionTextField="name" 
+            (select)="doSelect($event)" 
+            (remove)="doRemove($event)"
+            [(ngModel)]="item" 
+            [ngModelOptions]="{standalone: true}"
+            [multiple]="true"
+            (selectionChanges)="doSelectOptions($event)">
             </ngx-select>
-
-            <div class="alert alert-secondary">
-                <pre>{{ngxControl.value | json}}</pre>
             </div>
         </div>
     </div>
@@ -44,11 +52,7 @@
         </div>
     </div> 
  </div>   -->
-
-
 <!------------------------------------------------------------------------------------------------>
-
-
 <!-- <div class="row"></div>
 <div class="autoComplete">
     <form [formGroup]="formGroup">
@@ -63,9 +67,7 @@
         </mat-form-field>
     </form>
 </div> -->
-
 <!-- //////////////////////////////////////////////////////////////////////////////// -->
-
 <!-- <div>
     <ngx-autocomplete class='autoComplete' [data]="data" [searchOnProperty]="keyword"
      (selected)='selectEvent($event)'

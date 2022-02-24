@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { INgxSelectOptions } from 'ngx-select-ex';
 import { CountriesService } from 'src/app/services/countries.service';
-import { Observable } from 'rxjs';
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/delay';
 import { map, startWith } from 'rxjs/operators';
 @Component({
   selector: 'app-ngx-select-countries',
@@ -11,16 +12,17 @@ import { map, startWith } from 'rxjs/operators';
 })
 export class NgxSelectCountriesComponent implements OnInit {
   public items: any;
-  public data : any;
+  public data: any;
   options: string[];
-  genders:any ;
-  // formGroup: FormGroup;
-  // filteredOptions :any;
-  public ngxControl = new FormControl();
+  public subscriptionTypeControl = new FormControl();
+  public formGroup = new FormGroup({
+    subscriptionType: this.subscriptionTypeControl
+  });
+
   private _ngxDefaultTimeout;
   private _ngxDefaultInterval;
   private _ngxDefault;
-  
+
 
   constructor(private countriesService: CountriesService, private fb: FormBuilder) {
 
@@ -28,8 +30,8 @@ export class NgxSelectCountriesComponent implements OnInit {
     this.countriesService.getAllCountries().subscribe(
       data => {
         console.log(data);
-        
-        this.data = data;
+
+        this.items = data;
       })
 
     this._ngxDefaultTimeout = setTimeout(() => {
@@ -41,19 +43,6 @@ export class NgxSelectCountriesComponent implements OnInit {
     }, 2000);
   }
 
-  ngOnInit() {
-    // this.getNames();
-    // this.initForms();
-    this.genders = [
-      {id: 1, name: 'Male'},
-      {id: 2, name: 'Female'},
-      {id: 3, name: 'Other'}
-  ];
-  }
-
-
-  /////////////////////////////////////////////////////////////////////////////////////////////
-
 
   public ngOnDestroy(): void {
     clearTimeout(this._ngxDefaultTimeout);
@@ -64,7 +53,7 @@ export class NgxSelectCountriesComponent implements OnInit {
     return this._ngxDefault;
   }
 
-  public inputTyped = (source: string, text: string) => console.log('NgxSelectCountriesComponent.inputTyped', source, text);
+  public inputTyped = (text: string) => console.log('NgxSelectCountriesComponent.inputTyped', text);
 
   public doFocus = () => console.log('NgxSelectCountriesComponent.doFocus');
 
@@ -80,20 +69,11 @@ export class NgxSelectCountriesComponent implements OnInit {
 
   public doSelectOptions = (options: INgxSelectOptions[]) => console.log('NgxSelectCountriesComponent.doSelectOptions', options);
 
-  // selectEvent(item) {
-  //   // do something with selected item
-  // }
-
-  // onChangeSearch(val: string) {
-  //   // fetch remote data from here
-  //   // And reassign the 'data' which is binded to 'data' property.
-  // }
-  
-  // onFocused(e){
-  //   // do something when input is focused
-  // }
+  ngOnInit() { }
 
 }
+
+
 
 
 

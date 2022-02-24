@@ -2,11 +2,11 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
-import { MatAutocompleteModule} from '@angular/material/autocomplete'
-import { MatInputModule} from '@angular/material/input'
-// import { NgxSelectModule,INgxSelectOptions } from 'ngx-select-ex';
+import { MatAutocompleteModule } from '@angular/material/autocomplete'
+import { MatInputModule } from '@angular/material/input'
+import { NgxSelectModule, INgxSelectOptions } from 'ngx-select-ex';
 // import { AutoCompleteModule} from 'angular-ngx-autocomplete';
-import { NgxSelectModule} from 'ngx-select-autocomplete';
+// import { NgxSelectModule} from 'ngx-select-autocomplete';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
@@ -20,7 +20,6 @@ import { BlogComponent } from './components/blog/blog.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { MatchComponent } from './components/match/match.component';
 import { AdminComponent } from './components/admin/admin.component';
-
 import { AddPlayerComponent } from './components/add-player/add-player.component';
 import { AddMatchComponent } from './components/add-match/add-match.component';
 import { DisplayMatchComponent } from './components/display-match/display-match.component';
@@ -41,10 +40,10 @@ import { NgxSelectCountriesComponent } from './components/ngx-select-countries/n
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { from } from 'rxjs';
 
-// const CustomSelectOptions: INgxSelectOptions = { // Check the interface for more options
-//   optionValueField: 'id',
-//   optionTextField: 'name'
-// };
+const CustomSelectOptions: INgxSelectOptions = { // Check the interface for more options
+  optionValueField: 'id',
+  optionTextField: 'name'
+};
 
 @NgModule({
   declarations: [
@@ -62,7 +61,7 @@ import { from } from 'rxjs';
     AdminComponent,
     AddPlayerComponent,
     AddMatchComponent,
-    
+
     DisplayMatchComponent,
     DisplayPlayerComponent,
     PlayerComponent,
@@ -75,7 +74,7 @@ import { from } from 'rxjs';
     SearchComponent,
     MessageComponent,
     NgxSelectCountriesComponent,
-    
+
   ],
   imports: [
     BrowserModule,
@@ -83,18 +82,15 @@ import { from } from 'rxjs';
     ReactiveFormsModule,
     AppRoutingModule,
     HttpClientModule,
-    // NgxSelectModule.forRoot(CustomSelectOptions),
+    NgxSelectModule.forRoot(CustomSelectOptions),
     BrowserAnimationsModule,
     MatAutocompleteModule,
     MatInputModule,
-    NgxSelectModule
-   
-    // AutoCompleteModule
-    
-    
+    NgxSelectModule.forRoot({ keyCodeToOptionsOpen: 'ArrowDown' })
     // InMemoryWebApiModule.forRoot(DataService),
-    
+
   ],
+
   providers: [],
   bootstrap: [AppComponent]
 })
