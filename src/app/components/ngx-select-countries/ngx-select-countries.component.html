@@ -2,22 +2,25 @@
  <div class="container" style=" margin-bottom:300px;">
     <div class="example-block" style="margin-top: 300px;">
         <div class="example-block__item">
-            <div [formGroup]="formGroup">
-            <ngx-select  id="subscriptionType" name="subscriptionType"
-            [items]="items" 
-            [allowClear]="true"
+            <div [formGroup]="formGroup" [class.keep-options-hidden]="inputWriting">
+            <ngx-select id="subscriptionType" name="subscriptionType"
+            [formControl]="subscriptionTypeControl"
+            [items]="items"             
             [defaultValue]="doNgxDefault()"
-            placeholder="Select ..."
-            (typed)="inputTyped($event)"
+            placeholder="Select ..." 
+            [allowClear] = "true"          
             optionValueField="id"
             optionTextField="name" 
+            (typed)="ngxSelectTyped($event)"         
             (select)="doSelect($event)" 
             (remove)="doRemove($event)"
             [(ngModel)]="item" 
-            [ngModelOptions]="{standalone: true}"
-            [multiple]="true"
-            (selectionChanges)="doSelectOptions($event)">
+            [multiple]="false">
             </ngx-select>
+            <p></p>
+            <div class="alert alert-secondary">
+                <pre>{{subscriptionTypeControl.value | json}}</pre>
+            </div>
             </div>
         </div>
     </div>

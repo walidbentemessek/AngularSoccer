@@ -5,6 +5,7 @@ import { CountriesService } from 'src/app/services/countries.service';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/delay';
 import { map, startWith } from 'rxjs/operators';
+
 @Component({
   selector: 'app-ngx-select-countries',
   templateUrl: './ngx-select-countries.component.html',
@@ -18,7 +19,7 @@ export class NgxSelectCountriesComponent implements OnInit {
   public formGroup = new FormGroup({
     subscriptionType: this.subscriptionTypeControl
   });
-
+  public inputWriting = true;
   private _ngxDefaultTimeout;
   private _ngxDefaultInterval;
   private _ngxDefault;
@@ -26,13 +27,6 @@ export class NgxSelectCountriesComponent implements OnInit {
 
   constructor(private countriesService: CountriesService, private fb: FormBuilder) {
 
-    // GET INFORMATION FROM WEB SERVICE
-    this.countriesService.getAllCountries().subscribe(
-      data => {
-        console.log(data);
-
-        this.items = data;
-      })
 
     this._ngxDefaultTimeout = setTimeout(() => {
       this._ngxDefaultInterval = setInterval(() => {
@@ -53,7 +47,7 @@ export class NgxSelectCountriesComponent implements OnInit {
     return this._ngxDefault;
   }
 
-  public inputTyped = (text: string) => console.log('NgxSelectCountriesComponent.inputTyped', text);
+  public inputTyped = (text: string, value: string) => console.log('NgxSelectCountriesComponent.inputTyped', text);
 
   public doFocus = () => console.log('NgxSelectCountriesComponent.doFocus');
 
@@ -70,6 +64,20 @@ export class NgxSelectCountriesComponent implements OnInit {
   public doSelectOptions = (options: INgxSelectOptions[]) => console.log('NgxSelectCountriesComponent.doSelectOptions', options);
 
   ngOnInit() { }
+
+
+  ngxSelectTyped(text: string) {
+
+    if (this.inputWriting = !text || text.length < 3) {
+
+      this.countriesService.getAllCountries().subscribe(
+        data => {
+          console.log('My Data : ', data);
+          this.items = data;
+        })
+    }
+
+  }
 
 }
 
